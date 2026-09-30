@@ -179,7 +179,8 @@ class Rules:
     QUOTE_AND_PAREN_FINDER = re2.compile(
         r"""
         # Quoted text with quotations or dashes
-        "(?:[^"]*)"|(?<=\s)'(?:[^']*)'|
+        "(?:[^"]*)"|''[^']*''|(?<=\s)'(?:[^']*)'|
+        ``.+?(?:``|'')|`[^`]*`|
         [\p{Pi}»‚„].+?[\p{Pf}«‘“]|
         —[^—]*[,.!?]\s*—|
 
@@ -343,10 +344,10 @@ class Rules:
             rf"""
             (?<=
                 {cls.TERMINATORS_PATTERN}   # A terminator
-                (?:'\s|"|\s*[»‘”“\p{{Pf}}\p{{Pe}}])     # Closing quotes/parens
+                (?:``|`|''|'\s|"|\s*[»‘”“\p{{Pf}}\p{{Pe}}])       # Closing quotes/parens
             )
             (?!  # NOT followed by any continuation markers, punctuation, or space+lowercase
-                \s*[\p{{Po}}\p{{Ll}}\p{{Pe}}]|
+                \s*(?!(?:``|`|''))[\p{{Po}}\p{{Ll}}\p{{Pe}}]|
                 \s*(?:{_quotative_pattern})
             )
             """,
