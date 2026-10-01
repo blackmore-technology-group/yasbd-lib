@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.X.X] - Unreleased
 
+### Fixed
+
+- **Backtick-delimited quote sentence boundaries** ([#348](https://github.com/speedyk-005/yasbd-lib/pull/348)): Detect sentence boundaries after single/double backtick-delimited and doubled-apostrophe quoted text while preserving ordinary contractions.
+
 ...
 
 ## [1.0.1] - 2026-09-26
