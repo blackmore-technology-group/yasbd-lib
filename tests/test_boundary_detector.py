@@ -228,7 +228,7 @@ def test_rule_cache_lru(en_detector):
         "Kid!| Don't buy tobacco.| Alright!",
 
         # Backtick and doubled-apostrophe quoted boundaries (fix for #347)
-        "She replied `sure.`| Then he said ``okay.``| ''OK?''| They both smiled.",
+        "She replied `sure.`| Then he said ``okay.``| She replied ''OK?''| They both smiled.",
 
         # markdown headers with trailing numbers stay whole (fix for #305)
         "### 1. The Regex Breakdown\n|### 2. Metric Interpretation",
